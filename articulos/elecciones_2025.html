@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsultAR - Elecciones 2025: Lectura Política</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #020408;
+            --bg-panel: #0a0e17;
+            --primary-neon: #00eaff;
+            --primary-dim: #007bb8;
+            --text-main: #ffffff;
+            --text-muted: #8b9bb4;
+            --gap: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(0, 234, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 234, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* --- HOLY GRAIL LAYOUT --- */
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "nav    main   aside"
+                "footer footer footer";
+            grid-template-columns: 240px 1fr 300px;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            gap: var(--gap);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--gap);
+        }
+
+        /* --- HEADER (Nav Simplificada) --- */
+        header {
+            grid-area: header;
+            background: var(--bg-panel);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 234, 255, 0.2);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .logo span { color: var(--primary-neon); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        nav a:hover { color: var(--primary-neon); }
+
+        /* --- SIDEBAR LEFT (NAV) --- */
+        .sidebar-left {
+            grid-area: nav;
+            background: var(--bg-panel);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-list li { margin-bottom: 1rem; }
+
+        .nav-list a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 5px 0;
+            transition: 0.3s;
+        }
+
+        .nav-list a:hover { color: white; padding-left: 5px; }
+
+        /* --- MAIN CONTENT (ARTICLE) --- */
+        .main-content {
+            grid-area: main;
+            background: var(--bg-panel);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Solicitado: display block para el header del artículo */
+        .article-header {
+            display: block; 
+            margin-bottom: 2rem;
+        }
+
+        .category-tag {
+            color: var(--primary-neon);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary-neon);
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.3rem;
+            line-height: 1.2;
+            margin: 0.5rem 0 1.5rem 0;
+            color: #fff;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-body p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: #d1d5db;
+            text-align: justify;
+        }
+
+        .quote-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--primary-neon);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            border-radius: 0 12px 12px 0;
+            color: #fff;
+        }
+
+        /* --- SIDEBAR RIGHT --- */
+        .sidebar-right {
+            grid-area: aside;
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+        }
+
+        .widget {
+            background: var(--bg-panel);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .widget h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--primary-neon);
+        }
+
+        .related-post {
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .related-post a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .related-post span { color: var(--text-muted); font-size: 0.75rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            grid-area: footer;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1100px) {
+            .grid-container {
+                grid-template-areas:
+                    "header header"
+                    "main aside"
+                    "nav nav"
+                    "footer footer";
+                grid-template-columns: 1fr 300px;
+            }
+            .sidebar-left { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-areas: "header" "main" "aside" "footer";
+                grid-template-columns: 1fr;
+            }
+            .article-title { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <!-- HEADER (Solo Inicio como se pidió) -->
+        <header>
+            <div class="logo">CONSULTAR <span>ESTRATEGIAS</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- SIDEBAR IZQUIERDO -->
+        <aside class="sidebar-left">
+            <h3 style="font-size: 0.8rem; margin-bottom: 1rem; letter-spacing: 1px;">ANÁLISIS</h3>
+            <ul class="nav-list">
+                
+            </ul>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <article>
+                <header class="article-header">
+                    <span class="category-tag">Lectura Social</span>
+                    <h1 class="article-title">Elecciones 2025: lectura política y social del resultado</h1>
+                    <div class="article-meta">
+                        <span>Por Laura Rojas</span>
+                        <span>30 de Enero, 2026</span>
+                        <span>6 min lectura</span>
+                    </div>
+                </header>
+
+                <div class="content-body">
+                    <p>Las elecciones legislativas 2025 dejaron un escenario político complejo, con un mensaje claro de parte del electorado: la sociedad argentina sigue en búsqueda de respuestas concretas y representación real. A pesar del ajuste, la recesión, el cierre de empresas, la caída del salario y los conflictos en áreas sensibles como educación y salud, La Libertad Avanza volvió a imponerse en gran parte del país, lo que obliga a repensar las lógicas tradicionales del voto.</p>
+
+                    <p>La primera clave es entender que el voto argentino no responde únicamente a la economía. Si bien las dificultades materiales condicionan el humor social, cada vez más el votante elige desde una dimensión emocional, identitaria y simbólica. En este sentido, el fenómeno libertario consolida un voto identitario: no se trata sólo de un apoyo a la gestión de Milei, sino de una adhesión a una narrativa que interpela sentimientos de rebeldía, pertenencia y rechazo a “la casta”.</p>
+
+                    <div class="quote-box">
+                        "Se vota para reafirmar un 'nosotros' frente a 'ellos', una trinchera cultural antes que una evaluación económica."
+                    </div>
+
+                    <p>Muchos votantes de La Libertad Avanza se reconocen en esa identidad que reivindica la autosuficiencia, la crítica al Estado y el resentimiento hacia los privilegios de la política tradicional. En contextos de crisis y desconfianza, esa identidad compartida vale más que los resultados concretos de gestión.</p>
+
+                    <p>Por eso, el resultado de 2025 es también una señal hacia los espacios opositores: la comunicación política no puede limitarse a propuestas o críticas, sino que debe construir identidad, emoción y sentido de pertenencia. Las campañas que logran conectar con una causa —más que con un candidato— son las que hoy mueven el voto.</p>
+
+                    <p>El desafío hacia adelante es recuperar ese terreno simbólico: volver a ofrecer una identidad política que convoque, inspire y contenga a quienes hoy votan desde la bronca o la desilusión. La política, en definitiva, sigue siendo una disputa por el sentido.</p>
+                </div>
+            </article>
+        </main>
+
+        <!-- SIDEBAR DERECHO -->
+        <aside class="sidebar-right">
+            <div class="widget">
+                <h3>Tendencias</h3>
+                <div class="related-post">
+                    <a href="milei_y_el_nuevo_congreso.html">Milei y el nuevo Congreso</a>
+                    <span>Política</span>
+                </div>
+                <div class="related-post">
+                    <a href="polarizacionydemocracia.html">Legislativas 2025 en San Juan</a>
+                    <span>Análisis</span>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3>Suscripción</h3>
+                <p style="font-size: 0.8rem; color: #ccc; margin-bottom: 10px;">Recibe nuestros informes estratégicos semanalmente.</p>
+                <input type="email" placeholder="Email" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #333; background: #111; color: white; margin-bottom: 10px;">
+                <button style="width: 100%; padding: 8px; background: var(--primary-neon); border: none; font-weight: bold; cursor: pointer; border-radius: 4px;">SUSCRIBIRME</button>
+            </div>
+        </aside>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2026 ConsultAR Estrategias - Inteligencia y Análisis Político</p>
+        </footer>
+    </div>
+
+</body>
+</html>
