@@ -13,6 +13,115 @@
     <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/lobo.png" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+    /* --- ESTILOS DEL SLIDER --- */
+    .news-slider-section {
+        padding: 80px 5%;
+        background: transparent;
+        overflow: hidden;
+    }
+
+    .news-slider-section h2 {
+        font-family: 'Montserrat', sans-serif;
+        color: #fff;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .swiper {
+        width: 100%;
+        padding-bottom: 50px !important;
+    }
+
+    /* Reutilizamos el diseño de tus cards de novedades.html */
+    .swiper-slide {
+        height: auto;
+        display: flex;
+    }
+
+    .news-card {
+        background: #0a0e17;
+        border: 1px solid rgba(0, 234, 255, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .news-card:hover {
+        border-color: #00eaff;
+        box-shadow: 0 0 20px rgba(0, 234, 255, 0.1);
+        transform: translateY(-5px);
+    }
+
+    .news-card-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 2px solid #00eaff;
+    }
+
+    .news-card-body {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-card-tag {
+        color: #00eaff;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .news-card-body h3 {
+        color: #fff;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .news-card-body p {
+        color: #8b9bb4;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .news-card-link {
+        margin-top: auto;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    /* Estilos de flechas y puntos (Personalizados Neón) */
+    .swiper-button-next, .swiper-button-prev {
+        color: #00eaff !important;
+    }
+
+    .swiper-pagination-bullet {
+        background: #555 !important;
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #00eaff !important;
+        box-shadow: 0 0 10px #00eaff;
+    }
+</style>
 
 </head>
 
@@ -59,25 +168,71 @@
     
         <div class="hero__bg"></div>
     </section>
-    <!--NOVEDADES-->
-        <section class="editorial-spotlight">
-          <div class="spotlight-box">
-            <span class="spotlight-tag">Novedades</span>
-        
-            <h2>
-              Claves para entender el escenario político actual
-            </h2>
-        
-            <p>
-              Análisis estratégico, opinión pública y comunicación política
-              para quienes toman decisiones.
-            </p>
-        
-            <a href="novedades.html" class="spotlight-btn">
-              Leer análisis
-            </a>
-          </div>
-        </section>
+<section class="news-slider-section">
+    <h2>Novedades</h2>
+    
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+                <div class="news-card">
+                    <img src="assets/Milei-Congreso.jpg" class="news-card-img" alt="Análisis">
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Política</span>
+                        <h3>Milei y el nuevo Congreso</h3>
+                        <p>Las elecciones legislativas 2025 reconfiguraron el Congreso argentino...</p>
+                        <a href="novedades.html" class="news-card-link">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+                <div class="news-card">
+                    <img src="assets/eleccioneslegislativas2025.jpg" class="news-card-img" alt="Análisis">
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Estrategia</span>
+                        <h3>Lectura política 2025</h3>
+                        <p>Un análisis profundo sobre el comportamiento del electorado...</p>
+                        <a href="novedades.html" class="news-card-link">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+                <div class="news-card">
+                    <img src="assets/sanjuanlegislativas.jpg" class="news-card-img" alt="Análisis">
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Datos</span>
+                        <h3>Concentración del voto en San Juan</h3>
+                        <p>Tres fuerzas concentran el 91% del voto en la provincia...</p>
+                        <a href="novedades.html" class="news-card-link">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+                <div class="news-card">
+                    <img src="https://via.placeholder.com/400x200" class="news-card-img" alt="Análisis">
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Crisis</span>
+                        <h3>Gestión de Crisis Digital</h3>
+                        <p>Cómo las marcas y gobiernos deben actuar ante ataques en redes...</p>
+                        <a href="novedades.html" class="news-card-link">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Navegación y Paginación -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
 
 
 
@@ -172,75 +327,133 @@
         </section>
 
     </main>
-    <!--NOSOTROS-->
-        <section class="team-section">
-    <h2>Nuestro equipo</h2>
-    <p class="subtitle">Un equipo interdisciplinario que combina investigación, comunicación y estrategia para generar impacto real.</p>
-  
-      <div class="team-grid">
-          <!-- Card 1 -->
-          <div class="card">
-              <div class="avatar">
-                  <img src="https://cdn-icons-png.flaticon.com/512/1998/1998765.png" alt="Logo" width="50">
-              </div>
-              <h3>Nombre Apellido</h3>
-              <span class="role">Dirección Estratégica</span>
-              <p>Especialista en análisis político, diseño de escenarios y planificación estratégica.</p>
-              <span class="btn-open" onclick="openModal('modal1')">Leer más → →</span>
-          </div>
-  
-          <!-- Card 2 -->
-          <div class="card">
-              <div class="avatar">
-                  <img src="https://cdn-icons-png.flaticon.com/512/1998/1998765.png" alt="Logo" width="50">
-              </div>
-              <h3>Nombre Apellido</h3>
-              <span class="role">Investigación Social</span>
-              <p>Diseño y análisis de encuestas, estudios de opinión pública y focus groups.</p>
-              <span class="btn-open" onclick="openModal('modal2')">Leer más → →</span>
-          </div>
-  
-          <!-- Card 3 -->
-          <div class="card">
-              <div class="avatar">
-                  <img src="https://cdn-icons-png.flaticon.com/512/1998/1998765.png" alt="Logo" width="50">
-              </div>
-              <h3>Nombre Apellido</h3>
-              <span class="role">Comunicación Estratégica</span>
-              <p>Desarrollo de narrativas, posicionamiento y comunicación digital.</p>
-              <span class="btn-open" onclick="openModal('modal3')">Leer más → →</span>
-          </div>
-      </div>
-  </section>
-  
+    <!-- SECCIÓN NOSOTROS -->
+    <section class="team-section">
+        <h2>Nuestro equipo</h2>
+        <p class="subtitle">Un equipo interdisciplinario que combina investigación, comunicación y estrategia para generar impacto real.</p>
+      
+        <div class="team-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="avatar">
+                    <img src="assets/LauraRojas2.jpeg" alt="Lic. María Laura Rojas">
+                </div>
+                <div class="card-content">
+                    <h3>Lic. María Laura Rojas</h3>
+                    <span class="role">Consultora Política y Comunicadora Estratégica</span>
+                    <p>Se desempeña en el campo de desarrollo de dirigentes, gobiernos, pymes y emprendedores...</p>
+                </div>
+                <span class="btn-open" onclick="openModal('modal1')">Leer más →</span>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="avatar">
+                    <img src="assets/EzequielRuíz.jpeg" alt="Lic. Esequiel Ruíz Gonzales">
+                </div>
+                <div class="card-content">
+                    <h3>Lic. Esequiel Ruíz Gonzales</h3>
+                    <span class="role">Licenciado en Ciencias Políticas</span>
+                    <p>Se desempeña en el análisis político y el abordaje teórico–estratégico de los procesos...</p>
+                </div>
+                <span class="btn-open" onclick="openModal('modal2')">Leer más →</span>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="avatar">
+                    <img src="assets/Martin.jpeg" alt="Téc. Martin Guzman">
+                </div>
+                <div class="card-content">
+                    <h3>Téc. Martin Guzman</h3>
+                    <span class="role">Comunicación Estratégica</span>
+                    <p>Cuenta con experiencia en gestión ambiental municipal, desarrollo de políticas públicas...</p>
+                </div>
+                <span class="btn-open" onclick="openModal('modal3')">Leer más →</span>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="avatar">
+                    <img src="assets/sinnombre.jpeg" alt="Téc. Martin Guzman">
+                </div>
+                <div class="card-content">
+                    <h3>Téc Sup. Jorge Ibañez</h3>
+                    <span class="role">Técnico Superior en Educación Vial</span>
+                    <p>Se desempeña en el desarrollo de charlas motivacionales, oratoria y jornadas grupales para ...</p>
+                </div>
+                <span class="btn-open" onclick="openModal('modal4')">Leer más →</span>
+            </div>
+        </div>
+    </section>        
   <!-- ESTRUCTURA DE LOS MODALES -->
-  
-  <!-- Modal 1 -->
-  <div id="modal1" class="modal-overlay">
-      <div class="modal-content">
-          <button class="close-modal" onclick="closeModal('modal1')">&times;</button>
-          <div class="modal-avatar">
-              <img src="https://cdn-icons-png.flaticon.com/512/1998/1998765.png" alt="User">
-          </div>
-          <h3>Nombre Apellido</h3>
-          <span class="modal-role">Dirección Estratégica</span>
-          <div class="full-bio">
-              <p>Con más de 15 años de experiencia, ha liderado campañas victoriosas en toda la región. Su enfoque se basa en la teoría de juegos y el análisis prospectivo para anticipar movimientos del adversario.</p>
-          </div>
-      </div>
-  </div>
+  <!--Modal 1-->
+      <div id="modal1" class="modal-overlay">
+        <div class="modal-content">
+            
+            <button class="close-modal" onclick="closeModal('modal1')">&times;</button>
+            
+            <div class="modal-header">
+                <div class="modal-avatar">
+                    <img src="assets/LauraRojas2.jpeg" alt="Laura Rojas">
+                </div>
+                <h3>Lic. María Laura Rojas</h3>
+                <span class="modal-role">Consultora Política y Estratégica</span>
+            </div>
+
+            <div class="modal-body">
+                <div class="full-bio">
+                    <p class="bio-intro">
+                        Se desempeña en el desarrollo de dirigentes, gobiernos y pymes, optimizando la toma de decisiones mediante investigación social y estrategia digital.
+                    </p>
+                    
+                    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+
+                    <ul class="bio-list">
+                        <li><span class="highlight">Fundadora</span> de ConsultAR Estrategias.</li>
+                        <li><span class="highlight">Licenciada en Ciencias Políticas</span> con Especialización en Relaciones Internacionales (UNSJ - FACSO).</li>
+                        <li><span class="highlight">Posgraduada</span> en Dirección de Recursos Humanos por Competencias.</li>
+                        <li>Especialista en Comunicación Política en la <span class="highlight">UNTREF</span>.</li>
+                        <li>Amplia experiencia en campañas electorales (Aire y Tierra) y desarrollo de Planes de Gobierno.</li>
+                        <li>Experta en desarrollo de Espacios Políticos, Dirigentes, Asociaciones Civiles y Empresas.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT BÁSICO -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+            }
+        }
+  </script>
+
+
   
   <!-- Modal 2 -->
   <div id="modal2" class="modal-overlay">
       <div class="modal-content">
           <button class="close-modal" onclick="closeModal('modal2')">&times;</button>
           <div class="modal-avatar">
-              <img src="https://cdn-icons-png.flaticon.com/512/1998/1998765.png" alt="User">
+              <img src="assets/EzequielRuíz.jpeg" alt="User" >
           </div>
-          <h3>Nombre Apellido</h3>
-          <span class="modal-role">Investigación Social</span>
+          <h3>Lic. Esequiel Ruíz Gonzales</h3>
+          <span class="modal-role">Licenciado en Ciencias Políticas</span>
           <div class="full-bio">
-              <p>Experta en métodos cuantitativos y cualitativos. Su trabajo permite transformar datos crudos en insights accionables que definen el rumbo de la comunicación política.</p>
+              <p>Se desempeña en el análisis político y el abordaje teórico–estratégico de los procesos sociales y electorales.
+Forma parte del equipo de ConsultAR Estrategias, aportando una mirada académica y metodológica al diseño de diagnósticos y estrategias.</p>
           </div>
       </div>
   </div>
@@ -250,12 +463,27 @@
       <div class="modal-content">
           <button class="close-modal" onclick="closeModal('modal3')">&times;</button>
           <div class="modal-avatar">
-              <img src="https://cdn-icons-png.flaticon.com/512/1998/1998765.png" alt="User">
+              <img src="assets/Martin.jpeg" alt="User">
           </div>
-          <h3>Nombre Apellido</h3>
-          <span class="modal-role">Comunicación Estratégica</span>
+          <h3>Martin Guzman</h3>
+          <span class="modal-role">Consultor Ambiental</span>
           <div class="full-bio">
-              <p>Especialista en branding político y gestión de crisis. Ha diseñado discursos para figuras clave, logrando una conexión emocional genuina con el electorado.</p>
+              <p>Cuenta con experiencia en gestión ambiental municipal, desarrollo de políticas públicas, planes de residuos, educación ambiental y cumplimiento normativo, con una mirada territorial e integral</p>
+          </div>
+      </div>
+  </div>
+  <!-- Modal 4 -->
+  <div id="modal4" class="modal-overlay">
+      <div class="modal-content">
+          <button class="close-modal" onclick="closeModal('modal4')">&times;</button>
+          <div class="modal-avatar">
+              <img src="assets/sinnombre.jpeg" alt="User">
+          </div>
+          <h3>Téc Sup. Jorge Ibañez</h3>
+          <span class="modal-role">Técnico Superior en Educación Vial</span>
+          <div class="full-bio">
+              <p>Se desempeña en el desarrollo de charlas motivacionales, oratoria y jornadas grupales para empresas e instituciones.
+Integra el equipo de ConsultAR Estrategias, aportando herramientas de comunicación, concientización y motivación, orientadas al trabajo en equipo, la responsabilidad social y la mejora de los entornos laborales y comunitarios</p>
           </div>
       </div>
   </div>
@@ -348,6 +576,37 @@
       </div>
     </footer>
 <script src="animaciones.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            // Cuando la pantalla es >= 640px
+            640: {
+                slidesPerView: 2,
+            },
+            // Cuando la pantalla es >= 1024px
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>
 </body>
 </html>
 
