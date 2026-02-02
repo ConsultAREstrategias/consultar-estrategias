@@ -76,7 +76,7 @@ body {
 .nav__link {
     text-decoration: none;
     color: #cfd6ff;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     letter-spacing: 0.8px;
     text-transform: uppercase;
     position: relative;
@@ -603,9 +603,9 @@ body {
 }
 
 .modal-avatar {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto 15px;
+    width: 150px;
+    height: 150px;
+    margin: 0px auto 15px;
     border-radius: 50%;
     padding: 3px;
     background: linear-gradient(45deg, var(--primary-neon), transparent); 
@@ -758,7 +758,7 @@ body {
 
 .btn-whatsapp {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 15px 32px;
   border-radius: 30px;
   background: linear-gradient(135deg, #00b4ff, #0066ff);
   color: #fff;
@@ -774,6 +774,9 @@ body {
 }
 
 /* ===== FORM ===== */
+.contacto-info {
+  padding: 0px 0px 0px 50px;
+}
 
 .contacto-form {
   background: rgba(6,22,46,0.85);
