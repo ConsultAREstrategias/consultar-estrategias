@@ -601,8 +601,17 @@
                 <p style="font-size: 0.85rem; color: #a0a0a0; margin-bottom: 10px;">
                     Recibe inteligencia política y análisis exclusivo en tu bandeja.
                 </p>
-                <input type="email" placeholder="Tu correo electrónico" style="width: 100%; padding: 10px; background: #050505; border: 1px solid #333; color: white; border-radius: 4px;">
-                <button class="btn-subscribe">Suscribirse</button>
+                <form name="newsletter" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="newsletter"><input
+                    type="email"
+                    name="email"
+                    placeholder="Tu correo electrónico"
+                    required
+                    style="width: 100%; padding: 10px; background: #050505; border: 1px solid #333; color: white; border-radius: 4px;">
+                    <button type="submit" class="btn-subscribe">
+                    Suscribirse</button>
+                </form>
+
             </div>
 
             <!-- Widget de Tendencias -->

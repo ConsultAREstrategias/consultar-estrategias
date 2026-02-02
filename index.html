@@ -266,49 +266,49 @@
         
           <div class="contacto-wrapper">
             <div class="contacto-info">
-              <h2>Contacto Estratégico</h2>
+              <h2>Contacto</h2>
               <p class="descripcion">
                 Acompañamos a dirigentes, gobiernos y empresas a tomar mejores decisiones
                 a partir del conocimiento social, la comunicación y la estrategia.
               </p>
-        
-              <ul class="servicios">
-                <li>📊 Investigación social y encuestas</li>
-                <li>🧠 Estudios de opinión pública</li>
-                <li>👥 Focus Groups</li>
-                <li>🌐 Comunicación digital y posicionamiento</li>
-              </ul>
-        
               <a href="https://wa.me/5492646100339" class="btn-whatsapp">
                 Escribime por WhatsApp
               </a>
             </div>
         
-            <form class="contacto-form">
+            <form class="contacto-form"
+                  name="contacto"
+                  method="POST"
+                  data-netlify="true">
+            
+              <input type="hidden" name="form-name" value="contacto">
+            
               <h3>Solicitar contacto</h3>
-        
+            
               <div class="campo">
-                <input type="text" required />
+                <input type="text" name="nombre" required />
                 <label>Nombre</label>
               </div>
-        
+            
               <div class="campo">
-                <input type="email" required />
+                <input type="email" name="email" required />
                 <label>Email</label>
               </div>
-        
+            
               <div class="campo">
-                <input type="text" />
+                <input type="text" name="organizacion" />
                 <label>Organización / Espacio</label>
               </div>
-        
+            
               <div class="campo">
-                <textarea rows="4" required></textarea>
+                <textarea name="mensaje" rows="4" required></textarea>
                 <label>Mensaje</label>
               </div>
-        
+            
               <button type="submit">Enviar consulta</button>
             </form>
+
+
           </div>
         </section>
 
