@@ -101,7 +101,7 @@ body {
 .hero__bg {
     position: absolute;
     inset: 0;
-    background-image: url('fondo.png');
+    background-image: url('assets/background.webp');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
