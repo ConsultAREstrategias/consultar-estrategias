@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConsultAR - Novedades y Estrategia</title>
-    <!-- Google Fonts: Montserrat para títulos, Inter para cuerpo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
@@ -44,17 +43,17 @@
             min-height: 100vh;
         }
         .nav__logo-text {
-                font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: linear-gradient(
-        90deg,
-        #7f7cff,
-        #00b3ff
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(
+                90deg,
+                #7f7cff,
+                #00b3ff
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* --- LAYOUT HOLY GRAIL (CSS GRID) --- */
@@ -232,8 +231,9 @@
         /* Artículos (Feed) */
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
         }
 
         .article-card {
@@ -243,6 +243,9 @@
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .article-card:hover {
@@ -260,14 +263,21 @@
             align-items: center;
             justify-content: center;
         }
-        
-        /* Icono SVG placeholder para las imagenes */
-        .card-image svg {
-            width: 50px;
-            height: 50px;
-            stroke: var(--primary-dim);
-            opacity: 0.5;
+
+        /* --- SOLUCIÓN PARA LAS IMÁGENES --- */
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Recorta la imagen para que llene el espacio perfectamente */
+            object-position: center; /* Centra la imagen */
+            transition: transform 0.3s;
         }
+
+        /* Efecto de zoom al pasar el mouse (opcional pero queda genial) */
+        .article-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        /* ---------------------------------- */
 
         .card-image::after {
             content: '';
@@ -281,6 +291,9 @@
 
         .card-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Empuja el botón leer más hacia abajo */
         }
 
         .tag {
@@ -293,6 +306,7 @@
             display: inline-block;
             margin-bottom: 10px;
             box-shadow: 0 0 5px rgba(0, 234, 255, 0.2);
+            align-self: flex-start;
         }
 
         .article-card h3 {
@@ -317,6 +331,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            margin-top: auto; /* Mantiene el botón siempre al fondo */
         }
         
         .read-more svg {
@@ -344,7 +359,6 @@
             overflow: hidden;
         }
 
-        /* Efecto chess piece background */
         .widget.highlight::before {
             content: '';
             position: absolute;
@@ -468,7 +482,6 @@
             }
         }
 
-        /* Utilidad para iconos */
         .icon {
             width: 18px;
             height: 18px;
@@ -478,37 +491,24 @@
             stroke-linejoin: round;
             fill: none;
         }
-        .article1-img {
-            width: 500px;
-            height: 300px;
-            object-fit: cover;
-            object-position: right;
-        }
-        .article2-img {
-            object-fit: contain;
-        }
     </style>
 </head>
 <body>
 
     <div class="grid-container">
         
-        <!-- HEADER -->
         <header class="header">
             <div class="logo">
-                <!-- Icono Lobo SVG Simplificado -->
-                <img src="assets/lobo.png" alt="">
+                <img class="logo-icon" src="assets/lobo.png" alt="">
                 <span class="nav__logo-text">Consultar Estrategias</span>
             </div>
             <nav class="nav-top">
                 <ul>
-                    <!-- CAMBIA "tu_archivo_home.html" POR EL NOMBRE REAL DE TU ARCHIVO -->
                     <li><a href="index.html">Inicio</a></li>
                 </ul>
             </nav>
         </header>
 
-        <!-- SIDEBAR LEFT (Navegación) -->
         <aside class="sidebar-left">
             <div>
                 <h3 class="sidebar-title">Áreas de Análisis</h3>
@@ -531,7 +531,6 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT (Noticias) -->
         <main class="main-content">
             <div class="section-header">
                 <h1>Panorama Político</h1>
@@ -539,11 +538,9 @@
             </div>
 
             <div class="news-grid">
-                <!-- Articulo 1 -->
                 <article class="article-card">
                     <div class="card-image">
-                        <!-- Chess King Icon -->
-                        <img class="article1-img" src="assets/Milei-Congreso.jpg" alt="Javier Milei y el Congreso argentino">
+                        <img src="assets/Milei-Congreso.jpg" alt="Javier Milei y el Congreso argentino">
                     </div>
                     <div class="card-content">
                         <span class="tag">Política</span>
@@ -556,10 +553,8 @@
                     </div>
                 </article>
 
-                <!-- Articulo 2 -->
                 <article class="article-card">
                     <div class="card-image">
-                        <!-- Bar Chart Icon -->
                         <img src="assets/eleccioneslegislativas2025.jpg" alt="Ilustración de elecciones legislativas 2025">
                     </div>
                     <div class="card-content">
@@ -573,10 +568,9 @@
                     </div>
                 </article>
 
-                <!-- Articulo 3 -->
                 <article class="article-card">
                     <div class="card-image">
-                        <img class="article2-img" src="assets/sanjuanlegislativas.jpg" alt="elecciones legislativas en San Juan">
+                        <img src="assets/sanjuanlegislativas.jpg" alt="elecciones legislativas en San Juan">
                     </div>
                     <div class="card-content">
                         <span class="tag">Estadística</span>
@@ -587,12 +581,26 @@
                             <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                     </div>
+                </article>
+                    
+                <article class="article-card">
+                    <div class="card-image">
+                        <img src="assets/datosprecisos.jpeg" alt="Datos precisos representación">
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">Metodología</span>
+                        <h3>Contar con datos precisos, es obtener ventajas sobre los competidores.</h3>
+                        <p>En el mundo de la opinión pública circulan permanentemente números y rankings. Sin embargo, no toda medición es sinónimo de conocimiento real: detrás de una encuesta confiable hay método...</p>
+                        <a href="articulos/datosprecisos.html" class="read-more">
+                            Leer Análisis 
+                            <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </article>
             </div>
         </main>
 
-        <!-- SIDEBAR RIGHT (Aside) -->
         <aside class="sidebar-right">
-            <!-- Widget de Suscripción -->
             <div class="widget highlight">
                 <div class="widget-title">
                     <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
@@ -615,7 +623,6 @@
                 </form>
             </div>
 
-            <!-- Widget de Tendencias -->
             <div class="widget">
                 <div class="widget-title">
                     <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
@@ -629,10 +636,8 @@
                 </ul>
             </div>
             
-            <!-- Widget Visual Ajedrez -->
             <div class="widget" style="text-align: center; border-color: var(--primary-dim);">
                 <div style="opacity: 0.8; margin-bottom: 10px;">
-                    <!-- Chess Queen SVG -->
                     <svg height="60" width="60" viewBox="0 0 24 24" fill="none" stroke="var(--primary-neon)" stroke-width="1">
                         <path d="M6 12l5-5L6 2l6 5 6-5-5 5 5 5-2 1v6h-8v-6z"></path>
                     </svg>
@@ -642,7 +647,6 @@
             </div>
         </aside>
 
-        <!-- FOOTER -->
         <footer class="footer">
             <p>&copy; 2026 <strong>ConsultAR Estrategias</strong>. Diseñamos estrategias, construimos victorias.</p>
             <p style="margin-top: 5px; font-size: 0.75rem;">Encuestas • Sondeos • Opinión Pública • Investigación Social</p>
